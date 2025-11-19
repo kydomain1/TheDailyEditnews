@@ -159,7 +159,7 @@ const fallbackArticles = [
     "images": [
       "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
       "images/3.png",
-      "images/4.png"
+      "images/11.png"
     ],
     "products": [
       {"name": "Sun-Kissed Mallorca Escape", "brand": "Voyage Studio", "price": "From €499", "description": "Seven-night beachfront stay with nonstop flights, private transfers, and daily breakfast curated for relaxed island hopping.", "image": "https://images.unsplash.com/photo-1470246973918-29a93221c455?w=600&q=80", "link": "https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F"},
