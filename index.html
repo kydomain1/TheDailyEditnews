@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheDailyEditnews - Editorial Excellence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>TheDailyEditnews</h1>
+                        <p class="tagline">Editorial Excellence</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Categories</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="category.html?cat=fashion">Fashion & Accessories</a></li>
+                                <li><a href="category.html?cat=health">Health & Beauty</a></li>
+                                <li><a href="category.html?cat=home">Home & Garden</a></li>
+                                <li><a href="category.html?cat=travel">Travel & Accommodation</a></li>
+                                <li><a href="category.html?cat=finance">Finance & Insurance</a></li>
+                                <li><a href="category.html?cat=food">Food & Beverage</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions" style="display: flex; gap: 18px; align-items: center;">
+                    <div class="search-toggle">
+                        <button id="searchBtn" aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for articles, trends, and destinations...">
+            <button class="close-search" id="closeSearch" aria-label="Close search">&times;</button>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="tagline" style="color: rgba(255,255,255,0.8); letter-spacing: 4px;">CURATED STORIES • GLOBAL PERSPECTIVE</p>
+            <h1 class="hero-title">Daily Edit, Elevated</h1>
+            <p class="hero-subtitle">From sustainable fashion to intercontinental escapes, we craft long-form narratives, data-backed insights, and product spotlights for modern tastemakers.</p>
+            <div style="margin-top: 35px;">
+                <a href="#featured" class="read-more" style="margin-right: 15px;">Browse Highlights</a>
+                <a href="search.html" class="read-more" style="background: transparent; color: white; border-color: white;">Search Archive →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <div class="section-intro" style="text-align: center; margin-bottom: 50px;">
+                <p class="tagline" style="letter-spacing: 4px;">EDITOR'S DESK</p>
+                <h2 class="section-title" style="margin-bottom: 10px;">Lead Story</h2>
+                <p style="max-width: 720px; margin: 0 auto; color: var(--text-secondary);">Immersive reporting paired with cinematic visuals. Our feature of the day updates automatically as soon as new content is published.</p>
+            </div>
+            <div id="featuredArticle" class="featured-article">
+                <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-light);">
+                    Loading featured story...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Browse By Desk</h2>
+            <div class="categories-grid">
+                <a href="category.html?cat=fashion" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Fashion & Accessories</h3>
+                        <p>Runway recaps, fabric innovation, and capsule wardrobes curated for conscious closets.</p>
+                    </div>
+                </a>
+                <a href="category.html?cat=health" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Health & Beauty</h3>
+                        <p>Dermatologist-approved routines, biohacking insights, and holistic wellness rituals.</p>
+                    </div>
+                </a>
+                <a href="category.html?cat=home" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1505693314120-0d443867891c?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Home & Garden</h3>
+                        <p>Minimalist sanctuaries, biophilic design cues, and storage solutions with style.</p>
+                    </div>
+                </a>
+                <a href="category.html?cat=travel" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Travel & Accommodation</h3>
+                        <p>Slow travel itineraries, boutique sleepovers, and insider city playbooks.</p>
+                    </div>
+                </a>
+                <a href="category.html?cat=finance" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Finance & Insurance</h3>
+                        <p>Wealth-building frameworks, insurance explainers, and economic storylines decoded.</p>
+                    </div>
+                </a>
+                <a href="category.html?cat=food" class="category-card">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Food & Beverage</h3>
+                        <p>Bean-to-bar craftsmanship, chef collabs, and rituals that elevate daily dining.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="section-intro" style="text-align: center; margin-bottom: 50px;">
+                <p class="tagline" style="letter-spacing: 4px;">LATEST FILES</p>
+                <h2 class="section-title" style="margin-bottom: 10px;">In Case You Missed It</h2>
+                <p style="max-width: 720px; margin: 0 auto; color: var(--text-secondary);">Long-form essays and actionable guides sourced from our editors and verified contributors. Updated automatically from the article data feed.</p>
+            </div>
+            <div id="articlesGrid" class="articles-grid">
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: var(--text-light);">
+                    Loading curated articles...
+                </div>
+            </div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TheDailyEditnews</h3>
+                    <p>Your trusted source for editorial content across lifestyle, fashion, and modern living.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/thedailyeditnews" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/thedailyeditnews" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/thedailyeditnews" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.pinterest.com/thedailyeditnews" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.01 8.97 7.26 10.63-.1-.94-.19-2.4.04-3.44.21-1.39 1.35-5.8 1.35-5.8s-.34-.68-.34-1.68c0-1.57.91-2.74 2.05-2.74.96 0 1.43.72 1.43 1.59 0 .97-.62 2.42-.94 3.76-.27 1.14.57 2.07 1.7 2.07 2.04 0 3.61-2.15 3.61-5.25 0-2.74-1.97-4.66-4.78-4.66-3.25 0-5.16 2.44-5.16 4.96 0 .96.37 1.99.84 2.61.09.11.1.21.08.32l-.33 1.36c-.04.17-.14.21-.33.13-1.24-.58-2.02-2.4-2.02-3.86 0-3.15 2.29-6.05 6.6-6.05 3.47 0 6.17 2.47 6.17 5.77 0 3.45-2.17 6.22-5.19 6.22-1.01 0-1.97-.53-2.3-1.23l-.63 2.4c-.23.89-.85 2.01-1.27 2.69.96.3 1.97.45 3.01.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/thedailyeditnews" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="category.html?cat=fashion">Fashion & Accessories</a></li>
+                        <li><a href="category.html?cat=health">Health & Beauty</a></li>
+                        <li><a href="category.html?cat=home">Home & Garden</a></li>
+                        <li><a href="category.html?cat=travel">Travel & Accommodation</a></li>
+                        <li><a href="category.html?cat=finance">Finance & Insurance</a></li>
+                        <li><a href="category.html?cat=food">Food & Beverage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TheDailyEditnews. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

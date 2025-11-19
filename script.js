@@ -1,0 +1,662 @@
+// Load articles data (global for search.js access)
+window.articles = [];
+let articles = window.articles; // Alias for backward compatibility
+let currentPage = 1;
+const articlesPerPage = 6;
+
+// Fallback articles data (embedded in JavaScript)
+const fallbackArticles = [
+  {
+    "id": 1,
+    "title": "Sustainable Fashion: The Future of Wardrobe Essentials",
+    "category": "fashion",
+    "categoryName": "Fashion & Accessories",
+    "date": "2025-01-15",
+    "author": "Sarah Mitchell",
+    "featuredImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80",
+    "excerpt": "Exploring how sustainable fashion brands are revolutionizing the industry with eco-friendly materials and ethical production practices.",
+    "content": "<p>In an era where environmental consciousness meets style, sustainable fashion has emerged as more than just a trend—it's a movement reshaping the entire fashion industry. Forward-thinking brands are creating wardrobe essentials that don't compromise on style or ethics. The shift toward sustainable fashion represents a fundamental change in how we think about clothing, from disposable fast fashion to investment pieces that last for years.</p><p>The fashion industry has long been one of the world's largest polluters, responsible for approximately 10% of global carbon emissions and 20% of wastewater. However, a growing number of consumers and brands are challenging this status quo, proving that fashion can be both beautiful and responsible.</p><h2>The Rise of Eco-Conscious Materials</h2><p>Modern sustainable fashion brands are pioneering innovative materials like organic cotton, recycled polyester, and plant-based leather alternatives. These materials reduce environmental impact while offering superior quality and durability. Organic cotton, for instance, uses 91% less water than conventional cotton and eliminates harmful pesticides from the production process.</p><p>Recycled materials are another game-changer. Brands are now creating high-quality fabrics from plastic bottles, fishing nets, and even old clothing. This circular approach not only reduces waste but also creates new value from materials that would otherwise end up in landfills or oceans.</p><p>Plant-based leather alternatives, such as those made from mushrooms, pineapple leaves, or apple waste, offer cruelty-free options that don't sacrifice style or durability. These innovations are making it easier than ever to build a wardrobe that aligns with your values.</p><p>Leading brands such as Patagonia and Eileen Fisher have set industry standards through transparent supply chains and carbon-neutral production. Their success demonstrates that sustainability and profitability can coexist. These companies have proven that consumers are willing to invest in quality pieces when they understand the environmental and social impact of their purchases.</p><h2>Ethical Production Practices</h2><p>Beyond materials, ethical production is crucial. Fair trade certifications ensure workers receive fair wages in safe conditions. Brands like Everlane have built their business model around radical transparency, showing customers exactly where their clothes are made, who makes them, and how much each component costs.</p><p>This transparency movement is transforming the industry. Consumers can now make informed decisions about their purchases, supporting companies that treat workers with dignity and respect. Ethical production also means better quality, as workers who are paid fairly and work in safe conditions produce superior garments.</p><p>Many sustainable brands are also investing in local communities, providing education and healthcare benefits to workers and their families. This holistic approach to business creates positive ripple effects that extend far beyond the fashion industry.</p><h2>Building a Sustainable Wardrobe</h2><p>Creating a sustainable wardrobe means investing in timeless pieces that transcend seasonal trends. Quality over quantity becomes the guiding principle, with each garment chosen for versatility and longevity. This approach not only benefits the environment but also saves money in the long run.</p><p>Start by assessing your current wardrobe. Identify pieces you wear regularly and those that sit unused. This exercise helps you understand your personal style and avoid future impulse purchases. Consider the versatility of each new piece—can it be dressed up or down? Does it work across multiple seasons?</p><p>Capsule wardrobes mix and match effortlessly, reducing constant shopping while maintaining a fresh aesthetic. Brands like Cuyana and Reformation excel at creating pieces that work across multiple seasons. A well-curated capsule wardrobe of 30-40 pieces can provide endless outfit combinations.</p><p>When shopping, look for quality indicators: strong seams, quality fabrics, and thoughtful design details. These elements signal that a garment will last. Also consider the care requirements—pieces that require dry cleaning or special handling may not be practical for everyday wear.</p><p>Remember that building a sustainable wardrobe is a journey, not a destination. Start with a few key pieces and gradually replace items as needed. The goal isn't perfection, but progress toward a more conscious and intentional approach to fashion.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80",
+      "https://images.unsplash.com/photo-1489987707028-82285e83dd63?w=800&q=80",
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Organic Cotton T-Shirt", "brand": "Patagonia", "price": "$45", "description": "Made from 100% organic cotton, this versatile tee is perfect for everyday wear.", "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80", "link": "#"},
+      {"name": "Recycled Denim Jacket", "brand": "Everlane", "price": "$98", "description": "Crafted from recycled materials, this classic jacket combines style with sustainability.", "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The Science of Skincare: Advanced Anti-Aging Solutions",
+    "category": "health",
+    "categoryName": "Health & Beauty",
+    "date": "2025-03-22",
+    "author": "Dr. Emily Chen",
+    "featuredImage": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&q=80",
+    "excerpt": "Discover the latest scientific breakthroughs in anti-aging skincare and how to build an effective routine.",
+    "content": "<p>Skincare science has evolved dramatically in recent years, with cutting-edge research revealing new pathways to healthy, youthful skin. This guide combines scientific evidence with practical application for effective anti-aging results. The field of dermatology and cosmetic science has made remarkable advances, moving from simple moisturizers to sophisticated formulations that can actually reverse signs of aging.</p><p>What makes modern anti-aging skincare revolutionary is the combination of proven ingredients with advanced delivery systems. Today's products can penetrate deeper into the skin, target specific cellular processes, and provide measurable improvements in skin appearance and health.</p><h2>Understanding Skin Aging</h2><p>Skin aging occurs through two primary mechanisms: intrinsic aging (genetic and chronological) and extrinsic aging (environmental factors like UV exposure and pollution). Understanding these processes is crucial for developing effective strategies. Intrinsic aging is inevitable and begins in our mid-20s, while extrinsic aging is largely preventable through proper skincare and lifestyle choices.</p><p>Intrinsic aging manifests as gradual thinning of the skin, decreased collagen production, and slower cell turnover. These changes are genetically programmed and occur at different rates for different people. However, extrinsic factors can accelerate this process dramatically—some studies suggest that up to 80% of visible aging is caused by sun exposure alone.</p><p>Recent studies have identified key biomarkers of skin aging, including decreased collagen production, reduced hyaluronic acid levels, and increased oxidative stress. These findings have led to targeted ingredient development. Scientists now understand that aging isn't just about wrinkles—it involves changes in skin texture, elasticity, hydration, and even the skin's ability to repair itself.</p><p>Oxidative stress, caused by free radicals from UV radiation, pollution, and other environmental factors, damages skin cells and accelerates aging. This is why antioxidants have become so important in anti-aging skincare. They neutralize free radicals before they can cause cellular damage.</p><h2>Breakthrough Ingredients</h2><p>Retinoids remain the gold standard for anti-aging, with decades of research supporting their efficacy. These vitamin A derivatives work by increasing cell turnover, stimulating collagen production, and reducing the appearance of fine lines and wrinkles. They're one of the few ingredients proven to actually reverse signs of aging, not just prevent them.</p><p>Newer ingredients like peptides, growth factors, and stem cell extracts are showing promising results in clinical trials. Peptides are small chains of amino acids that can signal skin cells to produce more collagen. Different peptides target different aspects of aging, from firmness to hydration to pigmentation.</p><p>Growth factors, naturally occurring proteins that regulate cell growth and division, are being incorporated into high-end skincare products. These can help repair damaged skin and stimulate the production of new, healthy skin cells.</p><p>Niacinamide, a form of vitamin B3, has gained recognition for multiple benefits: reducing fine lines, improving skin texture, and strengthening the skin barrier. Products containing 5-10% niacinamide are particularly effective. This versatile ingredient also helps reduce inflammation, minimize pore appearance, and even out skin tone.</p><p>Hyaluronic acid has become a staple in anti-aging routines for its remarkable ability to hold up to 1,000 times its weight in water. This helps plump the skin, reducing the appearance of fine lines and creating a more youthful, hydrated appearance.</p><h2>Building Your Routine</h2><p>An effective anti-aging routine should include: a gentle cleanser, antioxidant serum (vitamin C), retinoid treatment, moisturizer with peptides, and broad-spectrum sunscreen. The order and timing of application matter significantly for optimal absorption. Generally, apply products from thinnest to thickest consistency.</p><p>Morning routines should focus on protection: cleanse, apply antioxidant serum (vitamin C is particularly effective in the morning as it provides additional protection against environmental damage), moisturize, and always finish with sunscreen. Sunscreen is non-negotiable—it's the single most important anti-aging product you can use.</p><p>Evening routines can be more treatment-focused: cleanse thoroughly to remove makeup and pollutants, apply retinoids (which can make skin more sensitive to sunlight, hence evening use), and finish with a rich moisturizer. Some people find it helpful to alternate retinoid nights with hydrating or peptide-focused nights to avoid irritation.</p><p>Consistency is more important than complexity. A simple, well-formulated routine used consistently will outperform an elaborate regimen that's inconsistently applied. It takes time to see results—typically 4-12 weeks for noticeable improvements. Be patient and stick with your routine.</p><p>Remember that skincare is just one part of anti-aging. Lifestyle factors like diet, sleep, stress management, and avoiding smoking all play crucial roles in maintaining youthful skin. A holistic approach yields the best results.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&q=80",
+      "https://images.unsplash.com/photo-1556229010-6c3f1c8f32d4?w=800&q=80",
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Advanced Retinol Serum", "brand": "SkinCeuticals", "price": "$85", "description": "Clinically proven to reduce fine lines and improve skin texture with 0.5% pure retinol.", "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80", "link": "#"},
+      {"name": "Vitamin C E Ferulic Serum", "brand": "The Ordinary", "price": "$32", "description": "Powerful antioxidant combination that protects against environmental damage.", "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Minimalist Home Design: Creating Serene Living Spaces",
+    "category": "home",
+    "categoryName": "Home & Garden",
+    "date": "2025-05-10",
+    "author": "James Anderson",
+    "featuredImage": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
+    "excerpt": "Learn how minimalist design principles can transform your home into a peaceful sanctuary that promotes well-being.",
+    "content": "<p>Minimalist home design goes beyond aesthetic choices—it's a philosophy that emphasizes intentionality, functionality, and tranquility. This guide explores how to create living spaces that are both beautiful and restorative. In our increasingly cluttered and fast-paced world, minimalist design offers a sanctuary of calm and clarity.</p><p>The minimalist movement in interior design has gained momentum as people seek to simplify their lives and reduce the overwhelming amount of possessions and visual noise in their homes. This isn't about living with nothing—it's about living with only what adds value and meaning to your life.</p><h2>The Philosophy of Minimalism</h2><p>At its core, minimalism in home design is about removing the unnecessary to highlight what truly matters. It's not about deprivation, but about curating spaces that reflect your values and support your lifestyle. This approach has been shown to reduce stress and improve mental clarity. When your environment is uncluttered, your mind can focus more easily.</p><p>Minimalism encourages you to question every item in your home: Does it serve a purpose? Does it bring you joy? Does it align with your values? This process of intentional selection creates spaces that are deeply personal and meaningful, rather than filled with items chosen out of habit or social pressure.</p><p>Scandinavian and Japanese design traditions have heavily influenced modern minimalist aesthetics, emphasizing natural materials, clean lines, and thoughtful use of space. These principles create environments that feel both contemporary and timeless. Scandinavian minimalism often incorporates warmth through natural wood and cozy textiles, while Japanese minimalism emphasizes the beauty of empty space and the concept of \"ma\"—the intentional use of negative space.</p><p>Both traditions share a respect for craftsmanship and quality. In minimalist design, fewer items mean each piece must be exceptional. This philosophy naturally leads to investing in well-made, durable furniture and decor that will last for years rather than disposable, trend-driven pieces.</p><h2>Key Design Elements</h2><p>Successful minimalist spaces incorporate several key elements: neutral color palettes (whites, grays, beiges), natural materials (wood, stone, linen), functional furniture with clean lines, and abundant natural light. Each element should serve a purpose while contributing to the overall sense of calm.</p><p>Color plays a crucial role in minimalist design. Neutral palettes create a sense of tranquility and allow the eye to rest. However, this doesn't mean your space must be monochromatic. Subtle variations in tone and texture add depth and interest without creating visual chaos. Some minimalist spaces incorporate one or two accent colors used sparingly for visual interest.</p><p>Natural materials bring warmth and texture to minimalist spaces. Wood, whether in flooring, furniture, or accents, adds organic beauty. Stone and marble provide elegant, timeless surfaces. Natural fibers like linen, cotton, and wool in textiles add softness and comfort. These materials age beautifully, developing character over time.</p><p>Storage solutions are crucial in minimalist design. Hidden storage, built-in shelving, and multi-functional furniture help maintain the clean aesthetic while keeping daily life organized. Brands like IKEA and Muji excel at creating such solutions. The key is making storage part of the design, not an afterthought.</p><p>Furniture in minimalist spaces should be functional first, beautiful second. Each piece should earn its place by serving a clear purpose. Multi-functional furniture is particularly valuable—a storage ottoman, a bed with built-in drawers, or a dining table that doubles as a workspace. This approach reduces the number of items needed while maximizing functionality.</p><h2>Creating Your Minimalist Space</h2><p>Start by decluttering and identifying what you truly need and love. This process can be emotional and challenging, but it's essential for creating a minimalist home. Use the KonMari method or similar approaches: handle each item and ask if it sparks joy or serves a clear purpose. Be honest with yourself about what you actually use versus what you think you might need someday.</p><p>Then, focus on quality over quantity when selecting furniture and decor. Each piece should be carefully chosen for its form, function, and contribution to the overall atmosphere. This approach may mean spending more on individual items, but you'll buy fewer things overall, often saving money in the long run.</p><p>When introducing new items, consider the \"one in, one out\" rule: for every new item you bring home, remove one existing item. This prevents accumulation and keeps your space intentionally curated. It also encourages you to think carefully about each purchase.</p><p>Remember that minimalism is personal—your interpretation should reflect your lifestyle. Some prefer stark minimalism with very few items and neutral colors, while others incorporate more warmth and texture. The goal is creating a space that feels authentically yours while maintaining the principles of simplicity and intentionality.</p><p>Don't feel pressured to achieve minimalism overnight. It's a gradual process of refinement. Start with one room, learn what works for you, and apply those lessons to other spaces. The journey toward minimalism is as valuable as the destination, teaching you about your priorities and what truly matters in your life.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Scandinavian Sofa", "brand": "IKEA", "price": "$599", "description": "Clean lines and comfortable design perfect for minimalist living rooms.", "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80", "link": "#"},
+      {"name": "Bamboo Storage System", "brand": "Muji", "price": "$249", "description": "Modular storage solution that keeps spaces organized and clutter-free.", "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Hidden Gems: Undiscovered European Destinations",
+    "category": "travel",
+    "categoryName": "Travel & Accommodation",
+    "date": "2025-07-18",
+    "author": "Maria Rodriguez",
+    "featuredImage": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80",
+    "excerpt": "Explore lesser-known European destinations that offer authentic experiences away from tourist crowds.",
+    "content": "<p>While Paris, Rome, and Barcelona draw millions of visitors annually, Europe is home to countless hidden gems that offer equally rich experiences without the crowds. This guide reveals destinations that combine authentic culture, stunning landscapes, and welcoming communities. These lesser-known places provide opportunities for deeper connections with local life and culture, away from the tourist traps and selfie sticks.</p><p>Traveling off the beaten path isn't just about avoiding crowds—it's about discovering the authentic soul of a place. These destinations often preserve traditions and ways of life that have been lost in more tourist-heavy areas. You'll find yourself having genuine conversations with locals, discovering family-run restaurants, and experiencing moments of serendipity that make travel truly memorable.</p><h2>Slovenia: The Green Heart of Europe</h2><p>Slovenia remains one of Europe's best-kept secrets. From the fairy-tale beauty of Lake Bled to the underground wonders of Postojna Cave, this small country packs incredible diversity into its compact size. Despite being smaller than many US states, Slovenia offers everything from alpine peaks to Mediterranean coastline, from ancient forests to vibrant cities.</p><p>Ljubljana, the capital, offers a charming old town perfect for leisurely exploration. The city's pedestrian-friendly center, crisscrossed by the Ljubljanica River, feels like a living museum. Yet it's also a vibrant, modern city with excellent restaurants, cafes, and a thriving cultural scene. The city's commitment to sustainability is evident everywhere, from its extensive bike-sharing program to its car-free city center.</p><p>The Julian Alps provide world-class hiking and outdoor activities. Triglav National Park offers some of Europe's most spectacular mountain scenery, with crystal-clear lakes, waterfalls, and alpine meadows. In winter, the region transforms into a skiing paradise, with resorts that are far less crowded and expensive than their Alpine neighbors.</p><p>The country's commitment to sustainability makes it particularly appealing to eco-conscious travelers. Slovenia was the first country in the world to be declared a green destination, and this commitment is evident throughout. Many accommodations focus on green practices, from eco-lodges in the mountains to sustainable city hotels. The local cuisine emphasizes fresh, locally-sourced ingredients, with a strong tradition of farm-to-table dining.</p><p>Slovenian cuisine is a delightful surprise for food lovers. The country's location at the crossroads of Central Europe, the Mediterranean, and the Balkans has created a unique culinary tradition. Don't miss traditional dishes like žlikrofi (potato dumplings), potica (rolled pastry with various fillings), and the excellent local wines, particularly from the Vipava Valley.</p><h2>Portugal's Alentejo Region</h2><p>While Lisbon and Porto attract attention, the Alentejo region offers a slower, more authentic Portuguese experience. This vast region, covering about a third of Portugal, feels worlds away from the bustling coastal cities. Rolling plains dotted with cork trees, medieval hilltop towns, and excellent wine regions characterize this area.</p><p>Évora, a UNESCO World Heritage site, showcases Roman ruins and well-preserved medieval architecture. The city's historic center is a maze of narrow streets, whitewashed houses, and impressive monuments including a Roman temple and a Gothic cathedral. Yet Évora is also a living city, not a museum piece, with a university that keeps it vibrant and youthful.</p><p>The Alentejo's landscape is dominated by vast plains known as the \"breadbasket of Portugal.\" This agricultural heartland produces much of the country's wheat, olives, and wine. The region's cork oak forests are particularly important—Portugal produces about half the world's cork, and the Alentejo is home to many of these forests.</p><p>The region's cuisine is a highlight, featuring hearty dishes like açorda (bread soup), migas (breadcrumbs with pork), and ensopado de borrego (lamb stew). These dishes reflect the region's agricultural heritage and use simple, local ingredients to create deeply satisfying meals. Local cheeses, particularly from Nisa and Évora, are exceptional.</p><p>Local wines, particularly from the Alentejo DOC, are exceptional and often overlooked by international markets. The region's hot, dry climate and diverse soils produce robust reds and interesting whites. Many wineries offer tours and tastings, providing opportunities to meet winemakers and learn about traditional Portuguese winemaking methods.</p><h2>Planning Your Off-the-Beaten-Path Journey</h2><p>Traveling to lesser-known destinations requires slightly more planning but rewards with authentic experiences. These places often have less tourist infrastructure, which means you'll need to do more research and be more flexible. However, this also means you'll have more opportunities for genuine interactions and unexpected discoveries.</p><p>Consider staying in locally-owned accommodations rather than international chains. Family-run guesthouses, boutique hotels, and agritourism properties offer more authentic experiences and directly support local communities. These accommodations often provide insider tips and recommendations you won't find in guidebooks.</p><p>Learning basic phrases in the local language goes a long way. Even simple greetings and thank-yous show respect and often lead to warmer interactions. Locals appreciate the effort, and you'll find that people are more willing to help and share their knowledge when you attempt to communicate in their language.</p><p>Be open to spontaneous discoveries. Some of the best travel experiences come from unplanned moments—a local festival you stumble upon, a restaurant recommendation from a shopkeeper, or a scenic detour suggested by a friendly local. Leave room in your itinerary for these serendipitous experiences.</p><p>These destinations often offer better value than their more famous counterparts. You'll find that your money goes further, whether it's for accommodations, meals, or activities. More importantly, you'll have more meaningful connections with local culture and people, creating memories that last long after you return home.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&q=80",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80"
+    ],
+    "products": [
+      {"name": "European Travel Guide 2025", "brand": "Lonely Planet", "price": "$24.99", "description": "Comprehensive guide to hidden European destinations with insider tips.", "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80", "link": "#"},
+      {"name": "Travel Packing Essentials", "brand": "Away", "price": "$225", "description": "Lightweight, durable luggage perfect for European adventures.", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Smart Financial Planning for Millennials and Gen Z",
+    "category": "finance",
+    "categoryName": "Finance & Insurance",
+    "date": "2025-08-05",
+    "author": "Michael Thompson",
+    "featuredImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    "excerpt": "Essential financial strategies tailored for younger generations navigating today's economic landscape.",
+    "content": "<p>Financial planning for millennials and Gen Z requires a different approach than previous generations. With student loan debt, rising housing costs, and evolving career paths, these generations face unique challenges that demand innovative solutions. The traditional financial playbook—get a job, buy a house, save for retirement—doesn't work the same way when you're starting your career with significant debt and facing housing costs that have far outpaced wage growth.</p><p>However, these generations also have advantages their parents didn't: access to low-cost investment platforms, financial education resources online, and technology that makes managing money easier than ever. The key is understanding how to leverage these tools while navigating the unique challenges of the modern economy.</p><h2>Understanding Your Financial Foundation</h2><p>Building a solid financial foundation starts with understanding your current situation. Track your income, expenses, and debts comprehensively. This might feel overwhelming at first, but knowledge is power when it comes to finances. You can't improve what you don't measure.</p><p>Free tools like Mint or YNAB (You Need A Budget) can help automate this process and provide clear insights into your spending patterns. These apps connect to your bank accounts and credit cards, automatically categorizing transactions and showing you exactly where your money goes. The insights can be eye-opening—many people are surprised to discover how much they spend on things like dining out or subscription services.</p><p>Create a realistic budget based on your actual spending patterns, not wishful thinking. Start by tracking everything for a month without judgment, then identify areas where you can make adjustments. Small changes, like making coffee at home or canceling unused subscriptions, can add up significantly over time.</p><p>Emergency funds are more critical than ever. Aim to save three to six months of expenses, but start with a smaller goal—even $1,000 provides a crucial buffer. This emergency fund prevents you from going into debt when unexpected expenses arise, whether it's a car repair, medical bill, or job loss.</p><p>High-yield savings accounts offer better returns than traditional savings while maintaining accessibility. Online banks typically offer the best rates because they have lower overhead costs. While the difference might seem small, over time it adds up, and you're not sacrificing access to your money.</p><h2>Investment Strategies for Young Adults</h2><p>Time is the greatest asset for young investors. Starting early allows compound interest to work its magic. The difference between starting to invest at 25 versus 35 can be hundreds of thousands of dollars by retirement age, even with the same monthly contributions. This is why starting early, even with small amounts, is so powerful.</p><p>Low-cost index funds and ETFs are ideal for beginners, offering diversification without requiring extensive market knowledge. These funds track broad market indices like the S&P 500, providing instant diversification across hundreds or thousands of stocks. They also have very low fees, which means more of your money stays invested and grows.</p><p>Dollar-cost averaging—investing a fixed amount regularly regardless of market conditions—is a smart strategy for young investors. This approach removes emotion from investing and takes advantage of market volatility. When prices are low, your fixed investment buys more shares; when prices are high, you buy fewer shares. Over time, this smooths out the cost basis of your investments.</p><p>Robo-advisors like Betterment and Wealthfront have democratized investing, making professional portfolio management accessible with lower fees. These platforms automatically rebalance portfolios and optimize for tax efficiency. They're particularly valuable for beginners who want professional management without the high fees of traditional financial advisors.</p><p>Don't let analysis paralysis stop you from getting started. The perfect investment strategy doesn't exist, but any reasonable strategy implemented consistently will outperform doing nothing. Start with a simple portfolio of low-cost index funds, and you can always refine your strategy as you learn more.</p><h2>Managing Debt Strategically</h2><p>Student loan debt doesn't have to derail financial goals. With the right strategy, you can manage student loans while still building wealth. First, understand your options: federal loans offer income-driven repayment plans, deferment, and forbearance options that private loans don't.</p><p>Explore income-driven repayment plans, refinancing options, and employer repayment assistance programs. Income-driven plans cap your monthly payment at a percentage of your discretionary income, which can provide breathing room when you're starting your career. Some employers now offer student loan repayment assistance as a benefit—take advantage if it's available.</p><p>Prioritize high-interest debt while making minimum payments on lower-interest loans. This \"avalanche method\" saves the most money in interest over time. However, if you need psychological wins to stay motivated, the \"snowball method\"—paying off smallest debts first—can also be effective.</p><p>Credit card debt requires immediate attention due to high interest rates. The average credit card interest rate is around 20%, which means debt can compound quickly. Consider balance transfer cards with 0% introductory APR periods, or debt consolidation loans if you have good credit. The goal is to stop the interest from compounding while you pay down the principal.</p><p>If you're struggling with debt, don't ignore it. Contact your creditors to discuss hardship programs or payment plans. Many are willing to work with you if you're proactive. Consider speaking with a nonprofit credit counselor who can help you create a debt management plan.</p><h2>Building Long-Term Wealth</h2><p>Maximize employer 401(k) matches—it's free money. If your employer matches 50% of your contributions up to 6% of your salary, that's an immediate 50% return on your investment before any market gains. This is the best investment return you'll ever get, so prioritize contributing enough to get the full match.</p><p>If your employer doesn't offer a retirement plan, open an IRA. Roth IRAs are particularly advantageous for young earners, as contributions grow tax-free and withdrawals in retirement are tax-free. Since you're likely in a lower tax bracket now than you will be in retirement, paying taxes upfront makes sense.</p><p>Don't overlook health savings accounts (HSAs) if you have a high-deductible health plan. These triple-tax-advantaged accounts can serve as powerful retirement savings vehicles when used strategically. Contributions are tax-deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free. After age 65, you can withdraw funds for any purpose (though non-medical withdrawals are taxed as income).</p><p>Consider side hustles or freelance work to accelerate your savings. The gig economy offers opportunities to earn extra income with flexible schedules. Whether it's driving for a rideshare service, freelancing in your field, or monetizing a hobby, extra income can significantly boost your savings rate.</p><p>Remember that building wealth is a marathon, not a sprint. There will be setbacks—job losses, unexpected expenses, market downturns. The key is staying the course and maintaining good financial habits even when times are tough. Consistency and discipline matter more than any single financial decision.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Personal Finance App", "brand": "YNAB", "price": "$14.99/month", "description": "Comprehensive budgeting tool that helps you take control of your finances.", "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80", "link": "#"},
+      {"name": "Investment Platform", "brand": "Betterment", "price": "0.25% annual fee", "description": "Automated investing with personalized portfolio management.", "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Artisanal Coffee Culture: From Bean to Cup Excellence",
+    "category": "food",
+    "categoryName": "Food & Beverage",
+    "date": "2025-02-28",
+    "author": "David Kim",
+    "featuredImage": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1200&q=80",
+    "excerpt": "Discover the world of specialty coffee and learn how to elevate your daily brew with expert techniques and premium beans.",
+    "content": "<p>The specialty coffee movement has transformed the simple act of drinking coffee into an art form. This guide explores the journey from coffee farms to your cup, revealing the secrets behind exceptional coffee experiences. What was once a commodity product has become a craft, with coffee professionals treating each bean with the care and attention once reserved for fine wine.</p><p>Specialty coffee represents the top tier of coffee quality, graded by certified Q Graders who evaluate beans based on flavor, aroma, acidity, body, and aftertaste. This focus on quality has elevated coffee from a morning caffeine fix to a complex beverage worthy of appreciation and study.</p><h2>The Origin Story</h2><p>Great coffee begins at the source. Single-origin beans from regions like Ethiopia, Colombia, and Guatemala each offer unique flavor profiles shaped by altitude, soil composition, and climate. Understanding these origins helps you select beans that match your taste preferences. Coffee grown at higher altitudes typically develops more complex, nuanced flavors due to slower bean development.</p><p>Ethiopia, the birthplace of coffee, produces beans known for their bright acidity and floral, fruity notes. Yirgacheffe coffees are particularly prized for their tea-like body and citrus flavors. Colombian coffees, grown in the Andes mountains, are known for their balanced, sweet profile with notes of caramel and nuts. Guatemalan coffees often feature chocolate and spice notes with a full body.</p><p>Processing methods also dramatically affect flavor. Washed processing, where the fruit is removed before drying, produces clean, bright coffees that highlight the bean's inherent characteristics. Natural processing, where beans dry inside the fruit, creates sweeter, fruitier profiles with more body. Honey processing, a middle ground, offers complexity with controlled fermentation.</p><p>Direct trade relationships between roasters and farmers ensure quality while supporting sustainable farming practices. This transparency in the supply chain benefits both producers and consumers, creating a more ethical coffee industry. Farmers receive fair prices that allow them to invest in quality improvements, while roasters get access to exceptional beans and can tell the story behind each coffee.</p><p>Many specialty roasters now provide detailed information about their coffees, including the farm, processing method, altitude, and even the farmer's name. This traceability allows consumers to make informed choices and support practices they believe in, whether that's organic farming, fair trade, or specific environmental initiatives.</p><h2>Brewing Methods Mastery</h2><p>Different brewing methods extract flavors differently, each highlighting different aspects of the coffee. Understanding these methods helps you choose the right technique for each coffee and your personal preferences.</p><p>Pour-over methods like V60 and Chemex highlight delicate, nuanced flavors. These methods give you complete control over extraction, allowing you to adjust water flow, temperature, and brew time. The paper filters remove oils and sediment, resulting in a clean, bright cup that showcases the coffee's complexity. These methods are ideal for lighter roasts and coffees with delicate flavor notes.</p><p>French press produces a full-bodied, rich cup with more oils and sediment. The metal filter allows these elements through, creating a heavier mouthfeel and more robust flavor. This method is excellent for darker roasts and coffees that benefit from a fuller body. The longer steeping time (typically 4 minutes) extracts more compounds, creating a different flavor profile than pour-over methods.</p><p>Espresso machines create concentrated, intense shots perfect for milk-based drinks. The high pressure and short extraction time (20-30 seconds) create a unique flavor profile with crema—the golden foam on top. Espresso requires finely ground beans and precise technique, but when done well, it produces a complex, concentrated coffee that serves as the foundation for lattes, cappuccinos, and other milk drinks.</p><p>Water quality and temperature are crucial factors often overlooked. Using filtered water at the optimal temperature (195-205°F) ensures proper extraction without bitterness. Hard water can make coffee taste flat, while water that's too hot extracts bitter compounds. Water that's too cool under-extracts, resulting in sour, weak coffee.</p><p>The grind size must match your brewing method—fine for espresso, medium for drip, coarse for French press. Grind size affects surface area and extraction rate. Too fine, and you'll over-extract, creating bitterness. Too coarse, and you'll under-extract, resulting in sour, weak coffee. A quality burr grinder provides consistent particle size, which is essential for even extraction.</p><h2>Building Your Home Coffee Setup</h2><p>Creating café-quality coffee at home doesn't require expensive equipment. Start with a quality burr grinder, which provides consistent particle size essential for even extraction. Blade grinders create uneven particles that lead to inconsistent extraction—some grounds extract too much (bitter), while others extract too little (sour). Burr grinders, whether manual or electric, create uniform particles for better results.</p><p>A scale ensures precise coffee-to-water ratios, which is crucial for consistency. Most specialty coffee professionals use a ratio of 1:15 to 1:17 (coffee to water by weight). Measuring by weight rather than volume is more accurate because different beans and grind sizes have different densities. A simple kitchen scale that measures in grams is sufficient.</p><p>A gooseneck kettle offers control for pour-over methods. The narrow spout allows you to control water flow precisely, which is important for techniques like the V60 or Chemex. While you can make good coffee without one, a gooseneck kettle makes it much easier to achieve consistent results with pour-over methods.</p><p>Storage matters too. Keep beans in an airtight container away from light, heat, and moisture. Coffee beans are porous and absorb odors, so they should be stored separately from strong-smelling foods. Avoid the refrigerator or freezer—the moisture and temperature changes can damage the beans. Instead, store beans in a cool, dark place in an airtight container.</p><p>Grind beans just before brewing to preserve volatile aromatic compounds that create coffee's complex flavor profile. Once ground, coffee begins to lose flavor quickly—within 15 minutes, you've lost significant aroma and flavor. Pre-ground coffee, no matter how high quality, will never taste as good as freshly ground beans. This is why a good grinder is often considered the most important piece of equipment for home coffee brewing.</p><p>Experiment and enjoy the process. Making great coffee at home is a skill that improves with practice. Try different beans, adjust your ratios, experiment with water temperature, and most importantly, taste and learn. The journey to better coffee is as enjoyable as the destination.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80",
+      "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800&q=80",
+      "https://images.unsplash.com/photo-1511920170033-83939cdcace7?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Premium Coffee Beans", "brand": "Blue Bottle Coffee", "price": "$18", "description": "Single-origin beans roasted to perfection for exceptional flavor.", "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80", "link": "#"},
+      {"name": "Burr Coffee Grinder", "brand": "Baratza", "price": "$149", "description": "Precise grinding for consistent, flavorful coffee extraction.", "image": "https://images.unsplash.com/photo-1511920170033-83939cdcace7?w=600&q=80", "link": "#"}
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Find Your Dream Vacation with FrenchBee",
+    "category": "travel",
+    "categoryName": "Travel & Accommodation",
+    "date": "2025-09-12",
+    "author": "Sophie Laurent",
+    "featuredImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80",
+    "excerpt": "Discover how FrenchBee makes your dream vacation accessible with affordable flights to France, the Caribbean, and beyond. Experience the perfect blend of comfort, value, and French hospitality.",
+    "content": "<p>Dreaming of strolling along the Champs-Élysées, exploring the lavender fields of Provence, or relaxing on a Caribbean beach? FrenchBee makes these dream destinations accessible with affordable, comfortable flights that bring the world closer. As a French low-cost airline, FrenchBee combines the elegance of French service with budget-friendly prices, making international travel more accessible than ever.</p><p>Founded in 2016, FrenchBee has quickly established itself as a reliable choice for travelers seeking quality service without the premium price tag. The airline operates flights from Paris Orly Airport to destinations across France, the Caribbean, and the Indian Ocean, connecting travelers to some of the world's most beautiful locations.</p><h2>Discovering French Destinations</h2><p>France offers an incredible diversity of experiences, from the romantic streets of Paris to the sun-drenched beaches of the French Riviera. FrenchBee's network includes flights to major French cities, making it easy to explore the country's rich culture, world-class cuisine, and stunning landscapes. Whether you're planning a weekend in Paris or a longer journey through the French countryside, FrenchBee provides convenient connections.</p><p>Paris, the City of Light, remains one of the world's most visited destinations for good reason. From iconic landmarks like the Eiffel Tower and Notre-Dame to world-renowned museums like the Louvre, Paris offers endless cultural experiences. FrenchBee's flights to Paris Orly provide easy access to the city center, allowing you to start your French adventure immediately upon arrival.</p><p>Beyond Paris, France's regions each offer unique charms. The Provence region captivates with its lavender fields, charming hilltop villages, and Mediterranean cuisine. The French Riviera attracts visitors with its glamorous resorts, beautiful beaches, and vibrant nightlife. The Loire Valley showcases magnificent châteaux and world-class wines, while the Alsace region offers a blend of French and German influences in its architecture and cuisine.</p><p>FrenchBee's commitment to making travel accessible means you can explore multiple French destinations without breaking the bank. The airline's competitive pricing allows travelers to extend their stays, visit more regions, and truly immerse themselves in French culture and lifestyle.</p><h2>Caribbean and Indian Ocean Adventures</h2><p>FrenchBee extends its reach beyond mainland France to stunning destinations in the Caribbean and Indian Ocean. These routes open up tropical paradises that might otherwise seem out of reach. The airline's long-haul flights maintain the same commitment to comfort and value, making exotic destinations accessible to a wider range of travelers.</p><p>The Caribbean destinations served by FrenchBee offer pristine beaches, crystal-clear waters, and vibrant local cultures. These islands combine French sophistication with tropical relaxation, creating unique vacation experiences. Whether you're seeking adventure activities like diving and hiking, or simply want to unwind on beautiful beaches, these destinations deliver unforgettable experiences.</p><p>The Indian Ocean destinations provide equally stunning experiences, with some of the world's most beautiful islands. These locations offer luxury resorts, incredible marine life, and opportunities for both relaxation and adventure. FrenchBee's flights make these dream destinations more accessible, allowing travelers to experience paradise without the premium price tag typically associated with such remote locations.</p><p>What sets FrenchBee apart in serving these destinations is its understanding of what travelers want: reliable service, comfortable flights, and fair pricing. The airline recognizes that the journey is part of the vacation experience, and works to ensure that even budget-conscious travelers can enjoy comfortable flights to their dream destinations.</p><h2>Planning Your Perfect Trip</h2><p>Booking your dream vacation with FrenchBee is straightforward, but a few tips can help you maximize value and ensure a smooth experience. The airline's website offers transparent pricing, making it easy to compare options and find the best deals. Booking in advance typically provides the best prices, and flexibility with travel dates can lead to significant savings.</p><p>Consider your travel needs when selecting fare options. FrenchBee offers different fare levels, from basic economy to options that include checked baggage, seat selection, and meal service. Understanding what's included in each fare helps you choose the option that best fits your travel style and budget. For longer flights, investing in additional comfort can significantly enhance your experience.</p><p>When planning your itinerary, take advantage of FrenchBee's network to explore multiple destinations. The airline's hub at Paris Orly makes it easy to combine a visit to France with a tropical extension. Many travelers find that combining a few days in Paris with a week in the Caribbean or Indian Ocean creates the perfect vacation balance.</p><p>Research your destination thoroughly before booking. Understanding local customs, weather patterns, and must-see attractions helps you make the most of your trip. FrenchBee's destinations each offer unique experiences, and knowing what to expect helps you plan activities and accommodations that match your interests and budget.</p><p>Remember that the best vacations balance planned activities with spontaneous exploration. While it's wise to book flights and accommodations in advance, leave room in your itinerary for unexpected discoveries. Some of the most memorable travel experiences come from unplanned moments—a local restaurant recommendation, a hidden beach, or a cultural festival you stumble upon.</p><p>FrenchBee makes dream vacations accessible, but the real magic happens when you arrive at your destination. The airline's role is to get you there comfortably and affordably, so you can focus on creating unforgettable memories. Whether you're exploring the streets of Paris, relaxing on a Caribbean beach, or discovering an Indian Ocean paradise, FrenchBee helps make your travel dreams a reality.</p>",
+    "images": [
+      "images/法国.png",
+      "images/印度洋.png",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    ],
+    "products": [
+      {"name": "Paris City Break Package", "brand": "FrenchBee", "price": "From $299", "description": "Round-trip flights to Paris with hotel accommodation. Perfect for a weekend getaway in the City of Light.", "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80", "link": "https://www.frenchbee.com/fr"},
+      {"name": "Caribbean Paradise Vacation", "brand": "FrenchBee", "price": "From $599", "description": "All-inclusive vacation packages to stunning Caribbean destinations with FrenchBee flights included.", "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80", "link": "https://www.frenchbee.com/fr"}
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Ready for Your Next Adventure? Book with Loveholidays",
+    "category": "travel",
+    "categoryName": "Travel & Accommodation",
+    "date": "2025-10-05",
+    "author": "Lena Fischer",
+    "featuredImage": "images/1.png",
+    "excerpt": "Unlock flexible European city breaks, tropical beach weeks, and curated cultural tours with one streamlined booking journey.",
+    "content": "<p>When your imagination drifts toward Mediterranean coves or alpine escapes, <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> instantly gathers flexible deals tailored to your wishlist. With transparent pricing calendars from <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a>, you can compare seasons, hotels, and flight upgrades without guesswork. Dedicated travel experts at <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> also monitor schedule changes so your itinerary stays effortless from booking to boarding.</p><p>From the moment you open the itinerary builder, <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> lets you mix city breaks, beach weeks, and cultural tours in a single cart. Intelligent filters on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> highlight kid-friendly suites, adults-only boutiques, or eco-certified stays within seconds. Even last-minute dreamers rely on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> for flash deals that keep budgets intact while upgrading the overall experience.</p><h2>Flexible Getaways for Every Season</h2><p>Spring travelers who crave tulips in Amsterdam or cherry blossoms in Kyoto use <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to sync flight times with peak bloom calendars. Adventure seekers planning summer surf trips trust <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to bundle board-friendly resorts with luggage-inclusive fares. Autumn foodies look to <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> for vineyard-side villas and culinary tours that sell out fast.</p><p>Winter escapes stay stress-free because <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> tracks snow reports and rebooking policies for alpine resorts. Family travelers lean on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to secure adjoining rooms, ski passes, and shuttle add-ons in one itinerary. Digital nomads follow <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> alerts for sunny co-working hotels when temperatures drop at home.</p><h2>How to Maximize Every Booking</h2><p>Start with the inspiration boards on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to bookmark dream resorts, then set price-drop notifications via your dashboard. Use the multi-airport search inside <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to compare departures from nearby cities and uncover hidden savings. Before checkout, the smart recommendations within <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> suggest transfers, excursions, and insurance calibrated to your travel style.</p><p>If you're coordinating group travel, <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> assigns a dedicated concierge so everyone receives updates simultaneously. Couples celebrating milestones appreciate how <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> flags suites with private plunge pools or rooftop dinners. Solo travelers feel secure because <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> highlights trusted partners with flexible check-in windows and round-the-clock support.</p><h2>Turn Dream Boards into Departures</h2><p>Combine flight credits, loyalty points, and promo codes directly inside <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to stretch every currency. Sustainability-minded explorers review hotel impact scores that <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> pulls from verified certifications. After booking, the mobile wallet from <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> stores vouchers, seat details, and support chats even when you're offline.</p><p>Weekend warriors set spontaneous alerts on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> for city breaks under four hours of flight time. Remote workers schedule longer stays through <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> to secure Wi-Fi guarantees, laundry perks, and local SIM deals. Food-focused travelers browse curated tasting itineraries that <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> assembles with partner chefs and guides.</p><p>When plans change, the rebooking center at <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> negotiates directly with airlines and hotels to minimize fees. Loyalty members unlock lounge passes and upgrades because <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> aggregates partner benefits in one streamlined profile. Even after you return home, <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a> archives notes and preferences so the next adventure starts smarter.</p><p>All that's left is to choose your next departure window, tap confirm on <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a>, share itineraries with friends via <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a>, and count down to takeoff guided by <a href=\"https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F\" target=\"_blank\" rel=\"noopener noreferrer\">loveholidays</a>.</p>",
+    "images": [
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
+      "images/3.png",
+      "images/4.png"
+    ],
+    "products": [
+      {"name": "Sun-Kissed Mallorca Escape", "brand": "Voyage Studio", "price": "From €499", "description": "Seven-night beachfront stay with nonstop flights, private transfers, and daily breakfast curated for relaxed island hopping.", "image": "https://images.unsplash.com/photo-1470246973918-29a93221c455?w=600&q=80", "link": "https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F"},
+      {"name": "Nordic Lights Discovery Tour", "brand": "Aurora Collective", "price": "From €899", "description": "Five-night Lapland adventure with glass-igloo lodging, dog-sledding, and aurora photography workshops.", "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80", "link": "https://www.linkbux.com/track/3abcPgeNEanqSEmtu7XBzjvXR5hZkCi86bdLjN_amDquDVNDZSWqX4XDbeWBicB_bOmPspPzazxEKAYw_c_c?url=https%3A%2F%2Fwww.loveholidays.com%2Fde%2F"}
+    ]
+  }
+];
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    loadArticles();
+    setupMobileMenu();
+});
+
+// Load articles from JSON with fallback
+async function loadArticles() {
+    try {
+        const response = await fetch('articles.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const loadedArticles = await response.json();
+        
+        if (loadedArticles && loadedArticles.length > 0) {
+            articles = loadedArticles;
+            window.articles = articles; // Make globally accessible
+            console.log(`Loaded ${articles.length} articles from JSON`);
+        } else {
+            throw new Error('No articles in JSON file');
+        }
+    } catch (error) {
+        console.warn('Could not load articles.json, using fallback data:', error);
+        articles = fallbackArticles;
+        window.articles = articles; // Make globally accessible
+        console.log(`Using fallback: ${articles.length} articles loaded`);
+    }
+    
+    // Always display articles (either from JSON or fallback)
+    if (articles && articles.length > 0) {
+        displayFeaturedArticle();
+        displayArticles();
+        setupPagination();
+    } else {
+        showErrorMessage();
+    }
+}
+
+// Show error message if articles fail to load
+function showErrorMessage() {
+    const articlesGrid = document.getElementById('articlesGrid');
+    const featuredSection = document.getElementById('featuredArticle');
+    
+    if (articlesGrid) {
+        articlesGrid.innerHTML = '<p style="text-align: center; padding: 60px; color: var(--text-secondary);">Unable to load articles. Please check your connection and try again.</p>';
+    }
+    
+    if (featuredSection) {
+        featuredSection.innerHTML = '<p style="text-align: center; padding: 60px; color: var(--text-secondary);">Featured article unavailable.</p>';
+    }
+}
+
+// Display featured article
+function displayFeaturedArticle() {
+    if (articles.length === 0) {
+        console.warn('No articles available to display');
+        return;
+    }
+    
+    const featured = articles[0];
+    const featuredSection = document.getElementById('featuredArticle');
+    
+    if (!featuredSection) {
+        console.error('Featured article section not found');
+        return;
+    }
+    
+    if (!featured) {
+        console.error('Featured article data is missing');
+        return;
+    }
+    
+    console.log('Displaying featured article:', featured.title);
+    
+    featuredSection.innerHTML = `
+        <div class="featured-article-image">
+            <img src="${featured.featuredImage}" alt="${featured.title}" loading="lazy">
+        </div>
+        <div class="featured-article-content">
+            <div class="featured-article-meta">
+                <span>${featured.categoryName || 'Uncategorized'}</span>
+                <span>${formatDate(featured.date)}</span>
+                <span>${featured.author || 'Editorial Team'}</span>
+            </div>
+            <h2>${featured.title}</h2>
+            <p>${featured.excerpt}</p>
+            <a href="article.html?id=${featured.id}" class="read-more">Read Full Article →</a>
+        </div>
+    `;
+}
+
+// Display articles grid
+function displayArticles(page = 1) {
+    const articlesGrid = document.getElementById('articlesGrid');
+    if (!articlesGrid) {
+        console.error('Articles grid element not found');
+        return;
+    }
+    
+    if (articles.length === 0) {
+        console.warn('No articles to display');
+        articlesGrid.innerHTML = '<p style="text-align: center; padding: 60px; color: var(--text-secondary);">No articles available.</p>';
+        return;
+    }
+    
+    currentPage = page;
+    const startIndex = (page - 1) * articlesPerPage;
+    const endIndex = startIndex + articlesPerPage;
+    const articlesToShow = articles.slice(1).slice(startIndex, endIndex); // Skip first article (featured)
+    
+    if (articlesToShow.length === 0) {
+        articlesGrid.innerHTML = '<p style="text-align: center; padding: 60px; color: var(--text-secondary);">No more articles to display.</p>';
+        return;
+    }
+    
+    console.log(`Displaying ${articlesToShow.length} articles on page ${page}`);
+    
+    articlesGrid.innerHTML = articlesToShow.map(article => `
+        <a href="article.html?id=${article.id}" class="article-card">
+            <img src="${article.featuredImage}" alt="${article.title}" class="article-image" loading="lazy">
+            <div class="article-content">
+                <div class="article-meta">
+                    <span>${article.categoryName || 'Uncategorized'}</span>
+                    <span>${formatDate(article.date)}</span>
+                </div>
+                <h3>${article.title}</h3>
+                <p class="article-excerpt">${article.excerpt || ''}</p>
+                <span class="article-read-more">Read More →</span>
+            </div>
+        </a>
+    `).join('');
+    
+    setupPagination();
+}
+
+// Setup pagination
+function setupPagination() {
+    const pagination = document.getElementById('pagination');
+    if (!pagination) return;
+    
+    const totalPages = Math.ceil((articles.length - 1) / articlesPerPage);
+    
+    if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+    }
+    
+    let paginationHTML = '';
+    
+    // Previous button
+    paginationHTML += `
+        <button ${currentPage === 1 ? 'disabled' : ''} onclick="displayArticles(${currentPage - 1})">
+            ← Previous
+        </button>
+    `;
+    
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+            paginationHTML += `
+                <button class="${i === currentPage ? 'active' : ''}" onclick="displayArticles(${i})">
+                    ${i}
+                </button>
+            `;
+        } else if (i === currentPage - 2 || i === currentPage + 2) {
+            paginationHTML += `<span>...</span>`;
+        }
+    }
+    
+    // Next button
+    paginationHTML += `
+        <button ${currentPage === totalPages ? 'disabled' : ''} onclick="displayArticles(${currentPage + 1})">
+            Next →
+        </button>
+    `;
+    
+    pagination.innerHTML = paginationHTML;
+}
+
+// Format date
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+// Setup search functionality
+function setupSearch() {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+            searchOverlay.classList.add('active');
+            searchInput.focus();
+        });
+    }
+    
+    if (closeSearch) {
+        closeSearch.addEventListener('click', () => {
+            searchOverlay.classList.remove('active');
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+        });
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query.length > 2) {
+                performSearch(query);
+            } else {
+                searchResults.innerHTML = '';
+            }
+        });
+        
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchOverlay.classList.remove('active');
+                searchInput.value = '';
+                searchResults.innerHTML = '';
+            }
+        });
+    }
+}
+
+// Perform search
+async function performSearch(query) {
+    const searchResults = document.getElementById('searchResults');
+    if (!searchResults) return;
+    
+    if (articles.length === 0) {
+        try {
+            const response = await fetch('articles.json');
+            articles = await response.json();
+        } catch (error) {
+            console.error('Error loading articles for search:', error);
+            return;
+        }
+    }
+    
+    const results = articles.filter(article => {
+        const searchText = `${article.title} ${article.excerpt} ${article.content} ${article.categoryName}`.toLowerCase();
+        return searchText.includes(query);
+    });
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<p style="color: rgba(255,255,255,0.8); padding: 20px; text-align: center;">No results found</p>';
+        return;
+    }
+    
+    searchResults.innerHTML = results.map(article => `
+        <div class="search-result-item" onclick="window.location.href='article.html?id=${article.id}'; document.getElementById('searchOverlay').classList.remove('active');">
+            <h3>${highlightText(article.title, query)}</h3>
+            <p>${highlightText(article.excerpt, query)}</p>
+            <span style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">${article.categoryName} • ${formatDate(article.date)}</span>
+        </div>
+    `).join('');
+}
+
+// Highlight search text
+function highlightText(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark style="background: rgba(255,255,255,0.3);">$1</mark>');
+}
+
+// Setup mobile menu
+function setupMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+    }
+}
+
+// Category page functionality
+function loadCategoryArticles() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('cat');
+    
+    if (!category) return;
+    
+    const categoryMap = {
+        'fashion': 'Fashion & Accessories',
+        'health': 'Health & Beauty',
+        'home': 'Home & Garden',
+        'travel': 'Travel & Accommodation',
+        'finance': 'Finance & Insurance',
+        'food': 'Food & Beverage'
+    };
+    
+    const categoryName = categoryMap[category];
+    if (!categoryName) return;
+    
+    // Update page title
+    document.title = `${categoryName} - TheDailyEditnews`;
+    
+    // Filter articles by category
+    if (articles.length === 0) {
+        fetch('articles.json')
+            .then(response => response.json())
+            .then(data => {
+                articles = data;
+                filterAndDisplayCategory(category, categoryName);
+            });
+    } else {
+        filterAndDisplayCategory(category, categoryName);
+    }
+}
+
+function filterAndDisplayCategory(category, categoryName) {
+    const filteredArticles = articles.filter(article => article.category === category);
+    const articlesGrid = document.getElementById('articlesGrid');
+    
+    if (articlesGrid) {
+        if (filteredArticles.length === 0) {
+            articlesGrid.innerHTML = '<p style="text-align: center; padding: 60px; color: var(--text-secondary);">No articles found in this category.</p>';
+        } else {
+            articlesGrid.innerHTML = filteredArticles.map(article => `
+                <a href="article.html?id=${article.id}" class="article-card">
+                    <img src="${article.featuredImage}" alt="${article.title}" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>${article.categoryName}</span>
+                            <span>${formatDate(article.date)}</span>
+                        </div>
+                        <h3>${article.title}</h3>
+                        <p class="article-excerpt">${article.excerpt}</p>
+                        <span class="article-read-more">Read More →</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+    }
+    
+    // Update category title
+    const categoryTitle = document.getElementById('categoryTitle');
+    if (categoryTitle) {
+        categoryTitle.textContent = categoryName;
+    }
+}
+
+// Article detail page
+async function loadArticleDetail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    
+    if (!articleId) {
+        const articleDetail = document.getElementById('articleDetail');
+        if (articleDetail) {
+            articleDetail.innerHTML = '<div style="text-align: center; padding: 100px;"><h1>Article ID not provided</h1><a href="index.html">Return to Home</a></div>';
+        }
+        return;
+    }
+    
+    // Load articles if not already loaded
+    if (articles.length === 0) {
+        try {
+            const response = await fetch('articles.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            articles = await response.json();
+            window.articles = articles; // Make globally accessible
+            console.log(`Loaded ${articles.length} articles for article detail`);
+        } catch (error) {
+            console.warn('Could not load articles.json, using fallback:', error);
+            // Use fallback articles
+            if (typeof fallbackArticles !== 'undefined') {
+                articles = fallbackArticles;
+                window.articles = articles;
+            } else {
+                console.error('No articles available');
+                const articleDetail = document.getElementById('articleDetail');
+                if (articleDetail) {
+                    articleDetail.innerHTML = '<div style="text-align: center; padding: 100px;"><h1>Unable to load article</h1><a href="index.html">Return to Home</a></div>';
+                }
+                return;
+            }
+        }
+    }
+    
+    displayArticleDetail(articleId);
+}
+
+function displayArticleDetail(articleId) {
+    console.log('Displaying article detail for ID:', articleId);
+    console.log('Available articles:', articles.length);
+    
+    const article = articles.find(a => a.id === articleId);
+    if (!article) {
+        console.error('Article not found with ID:', articleId);
+        const articleDetail = document.getElementById('articleDetail');
+        if (articleDetail) {
+            articleDetail.innerHTML = `
+                <div style="text-align: center; padding: 100px;">
+                    <h1>Article not found</h1>
+                    <p style="margin: 20px 0; color: var(--text-secondary);">The article you're looking for doesn't exist.</p>
+                    <a href="index.html" class="read-more" style="display: inline-block; margin-top: 20px;">Return to Home</a>
+                </div>
+            `;
+        }
+        return;
+    }
+    
+    console.log('Found article:', article.title);
+    
+    // Update page title
+    document.title = `${article.title} - TheDailyEditnews`;
+    
+    // Display article
+    const articleDetail = document.getElementById('articleDetail');
+    if (!articleDetail) {
+        console.error('Article detail element not found');
+        return;
+    }
+    
+    // Embed images into content
+    let contentWithImages = article.content || '<p>Content not available.</p>';
+    if (article.images && article.images.length > 0) {
+        // Use regex to find all h2 tags and insert images after each one
+        let imageIndex = 0;
+        let processedContent = contentWithImages;
+        
+        // Find all h2 closing tags and insert images after them
+        processedContent = processedContent.replace(/<\/h2>/g, (match) => {
+            if (imageIndex < article.images.length) {
+                const imageHTML = `<figure class="article-inline-image"><img src="${article.images[imageIndex]}" alt="${article.title}" loading="lazy"></figure>`;
+                imageIndex++;
+                return match + imageHTML;
+            }
+            return match;
+        });
+        
+        contentWithImages = processedContent;
+    }
+    
+    let productsHTML = '';
+    if (article.products && article.products.length > 0) {
+        productsHTML = `
+            <div class="products-section">
+                <h2>Recommended Products</h2>
+                <div class="products-grid">
+                    ${article.products.map(product => `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                            <h3>${product.name}</h3>
+                            <p class="product-brand">${product.brand}</p>
+                            <p class="product-price">${product.price}</p>
+                            <p class="product-description">${product.description}</p>
+                            <a href="${product.link}" class="product-link" target="_blank">View Product</a>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    articleDetail.innerHTML = `
+        <div class="article-header">
+            <div class="article-header-meta">
+                <span>${article.categoryName || 'Uncategorized'}</span>
+                <span>${formatDate(article.date)}</span>
+                <span>${article.author || 'Editorial Team'}</span>
+            </div>
+            <h1>${article.title}</h1>
+        </div>
+        <img src="${article.featuredImage}" alt="${article.title}" class="article-featured-image" loading="lazy">
+        <div class="article-body">
+            ${contentWithImages}
+        </div>
+        ${productsHTML}
+    `;
+    
+    console.log('Article content displayed successfully');
+}
+
+// Make functions available globally
+window.displayArticles = displayArticles;
+window.loadCategoryArticles = loadCategoryArticles;
+window.loadArticleDetail = loadArticleDetail;
+
+
